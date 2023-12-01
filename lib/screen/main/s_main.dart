@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:after_layout/after_layout.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -7,10 +11,16 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with AfterLayoutMixin {
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    Future.delayed(const Duration(milliseconds: 1500), () => FlutterNativeSplash.remove());
+  }
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold();
   }
+
 }

@@ -5,6 +5,7 @@ import 'app.dart';
 
 void main() {
   final bindings = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: bindings);
   runApp(const TtossApp());
 }
 
